@@ -24,17 +24,29 @@ class TestValidatorApplicationTests {
 		}
 	
 	@ParameterizedTest
-	@ValueSource(strings = {"desciptionforValidA", "AnotherdesciptionforValidA","11JustValid"})
-	void testCheckLengthConditionsForA(String description) {
+	@ValueSource(strings = {"desciptionforValidA", "AnotherdesciptionforValidA","11JustValid","omeaaathingccccccccccccccccc39charscccc"})
+	void testCheckValidLengthConditionsForA(String description) {
 	    assertTrue(validatorBusinessLogic.checkLengthConditionsForA(description));
 	}
 	
 	@ParameterizedTest
 	@ValueSource(strings = {"NotValidA", "Invalid ","Inv","StillInv"})
-	void test2CheckInvalidLengthConditionsForA(String description) {
+	void testCheckInvalidLengthConditionsForA(String description) {
 	    assertFalse(validatorBusinessLogic.checkLengthConditionsForA(description));
 	}
 	
+	@ParameterizedTest
+	@ValueSource(strings = {"desciptionforValidB", "AnotherdesciptionforValidB","","omeaaathingccccccccccccccccc39charscccc"})
+	void testCheckValidLengthConditionsForB(String description) {
+	    assertTrue(validatorBusinessLogic.checkLengthConditionsForB(description));
+	}
+	
+	
+	@ParameterizedTest
+	@ValueSource(strings = {"omeaaathingcccccccccccccccccc40charscccc","omeaaathingccccccccccccccccccc41charscccc"})
+	void testCheckInvalidLengthConditionsForB(String description) {
+	    assertFalse(validatorBusinessLogic.checkLengthConditionsForB(description));
+	}
 	
 	
 	
@@ -56,7 +68,7 @@ class TestValidatorApplicationTests {
 	
 	@ParameterizedTest
 	@MethodSource("getInValidObjectArgumentsAsJson")
-	void testInValidCheckName(ObjectPOJO inputJson) {
+	void testInvalidCheckName(ObjectPOJO inputJson) {
 	    assertFalse(validatorBusinessLogic.checkName(inputJson));
 	}
 	

@@ -31,11 +31,11 @@ public class ValidatorBusinessLogic {
 	}
 	
 	
-	public boolean checkLengthConditionsForB(String description) {
+	public boolean checkLengthConditionsForB(String description) { // Checks length of description is lower that 40 characters
 		return  description.length() <40;
 	}
 	
-	public boolean checkName(ObjectPOJO inputJson)
+	public boolean checkName(ObjectPOJO inputJson)// Checks that name is lowercase of topic character
 	{
 		return inputJson.getName() == Character.toLowerCase(inputJson.getTopic());
 	}
